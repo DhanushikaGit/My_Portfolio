@@ -4,37 +4,38 @@ const projects = [
   {
     id: 1,
     title: "Restaurant Website",
-    description: "A responsive restaurant website with menu display, online reservations, and user reviews, built with React and Laravel.",
+    description:
+      "A responsive restaurant website with menu display, online reservations, and user reviews, built with React and Laravel.",
     image: "/projects/restaurant-website.png",
-    tags: [" Java", "JavaScript", "MySQL", "Tailwind CSS","Bootstrap"],
-    
+    tags: ["Java", "JavaScript", "MySQL", "Tailwind CSS", "Bootstrap"],
     githubUrl: "#",
   },
   {
     id: 2,
-    title: " Movie Exploration App",
-    description: "A web app that suggests movies using TMDB API integration and user preferences, built with React and Node.js.",
+    title: "Movie Exploration App",
+    description:
+      "A web app that suggests movies using TMDB API integration and user preferences, built with React and Node.js.",
     image: "/projects/Movie-Exploration.png",
-    tags: ["React", "JavaScript,","SCSS", "TMDB API", "Bootstrap"],
-   
+    tags: ["React", "JavaScript", "SCSS", "TMDB API", "Bootstrap"],
     githubUrl: "https://github.com/DhanushikaGit/movie_explore_app",
   },
   {
     id: 3,
     title: "Agriculture Platform",
-    description: "A platform connecting farmers to agricultural services with information portals and service request forms, using PHP and Bootstrap.",
+    description:
+      "A platform connecting farmers to agricultural services with information portals and service request forms, using PHP and Bootstrap.",
     image: "/projects/agriculture-platform.png",
-    tags: ["Html","CSS","PHP", "Bootstrap", "MySQL", "JavaScript","Tailwind CSS"],
- 
-    githubUrl: "https://github.com/DhanushikaGit/Agriculture_Services_and_Fertilizer_Distribution_Platform",
+    tags: ["HTML", "CSS", "PHP", "Bootstrap", "MySQL", "JavaScript", "Tailwind CSS"],
+    githubUrl:
+      "https://github.com/DhanushikaGit/Agriculture_Services_and_Fertilizer_Distribution_Platform",
   },
   {
     id: 4,
     title: "Doctor Appointment Booking System",
-description: "Designed and developed a secure web app with role-based authentication, enabling appointment scheduling and payment integration for 100+ users.",
+    description:
+      "Designed and developed a secure web app with role-based authentication, enabling appointment scheduling and payment integration for 100+ users.",
     image: "/projects/doctor-appointment.png",
-    tags: ["React", "MongoDB,", "Express.js","Node.js", "Tailwind CSS"],
-  
+    tags: ["React", "MongoDB", "Express.js", "Node.js", "Tailwind CSS"],
     githubUrl: "https://github.com/DhanushikaGit/Appoinment_Booking_System",
   },
 ];
@@ -53,9 +54,9 @@ export const ProjectsSection = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, key) => (
+          {projects.map((project) => (
             <div
-              key={key}
+              key={project.id}
               className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
             >
               <div className="h-48 overflow-hidden">
@@ -68,8 +69,11 @@ export const ProjectsSection = () => {
 
               <div className="p-6">
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag) => (
-                    <span className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground">
+                  {project.tags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
+                    >
                       {tag}
                     </span>
                   ))}
@@ -81,16 +85,21 @@ export const ProjectsSection = () => {
                 </p>
                 <div className="flex justify-between items-center">
                   <div className="flex space-x-3">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
+                    {/* Only show demoUrl if it exists */}
+                    {project.demoUrl && (
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                      >
+                        <ExternalLink size={20} />
+                      </a>
+                    )}
                     <a
                       href={project.githubUrl}
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="text-foreground/80 hover:text-primary transition-colors duration-300"
                     >
                       <Github size={20} />
@@ -106,6 +115,7 @@ export const ProjectsSection = () => {
           <a
             className="cosmic-button w-fit flex items-center mx-auto gap-2"
             target="_blank"
+            rel="noopener noreferrer"
             href="https://github.com/DhanushikaGit"
           >
             Check My Github <ArrowRight size={16} />

@@ -36,7 +36,8 @@ export const AboutSection = () => {
             </div>
           </div>
 
-          <div class Nichols="grid grid-cols-1 gap-6">
+          {/* ✅ FIXED: Removed Nichols, and replaced class with className */}
+          <div className="grid grid-cols-1 gap-6">
             <div className="gradient-border p-6 card-hover">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
@@ -50,6 +51,7 @@ export const AboutSection = () => {
                 </div>
               </div>
             </div>
+
             <div className="gradient-border p-6 card-hover">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
@@ -63,12 +65,12 @@ export const AboutSection = () => {
                 </div>
               </div>
             </div>
+
             <div className="gradient-border p-6 card-hover">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <Briefcase className="h-6 w-6 text-primary" />
                 </div>
-
                 <div className="text-left">
                   <h4 className="font-semibold text-lg">Project Management</h4>
                   <p className="text-muted-foreground">
