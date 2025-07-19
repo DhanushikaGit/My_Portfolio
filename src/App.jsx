@@ -3,7 +3,6 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import ToastContainer from './Components/ui/toaster';
 
-
 function App() {
   return (
     <>
@@ -19,4 +18,4 @@ function App() {
 }
 
 export default App;
-import React from "react";
+import React from "react"; // This line seems misplaced
