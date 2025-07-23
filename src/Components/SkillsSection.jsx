@@ -3,38 +3,38 @@ import { cn } from "@/lib/utils";
 
 const skills = [
   // Frontend
-  { name: "HTML5/CSS3", level: 90, category: "frontend" },
-  { name: "JavaScript", level: 85, category: "frontend" },
-  { name: "React", level: 70, category: "frontend" },
-  { name: "Tailwind CSS", level: 85, category: "frontend" },
-  { name: "Bootstrap", level: 80, category: "frontend" },
-  { name: "UI/UX Design", level: 65, category: "frontend" },
+  { name: "HTML5/CSS3", category: "frontend" },
+  { name: "JavaScript", category: "frontend" },
+  { name: "React", category: "frontend" },
+  { name: "Tailwind CSS", category: "frontend" },
+  { name: "Bootstrap", category: "frontend" },
+  { name: "UI/UX Design", category: "frontend" },
 
   // Backend
-  { name: "Node.js", level: 60, category: "backend" },
-  { name: "Express.js", level: 65, category: "backend" },
-  { name: "Laravel", level: 75, category: "backend" },
-  { name: "PHP", level: 85, category: "backend" },
-  { name: "Java", level: 70, category: "backend" },
-  { name: "C#", level: 70, category: "backend" },
-  { name: "MongoDB", level: 50, category: "backend" },
-  { name: "MySQL", level: 90, category: "backend" },
-  { name: "Firebase", level: 65, category: "backend" },
-  { name: "RESTful APIs", level: 80, category: "backend" },
-  { name: "TMDB API Integration", level: 85, category: "backend" },
+  { name: "Node.js", category: "backend" },
+  { name: "Express.js", category: "backend" },
+  { name: "Laravel", category: "backend" },
+  { name: "PHP", category: "backend" },
+  { name: "Java", category: "backend" },
+  { name: "C#", category: "backend" },
+  { name: "MongoDB", category: "backend" },
+  { name: "MySQL", category: "backend" },
+  { name: "Firebase", category: "backend" },
+  { name: "RESTful APIs", category: "backend" },
+  { name: "TMDB API Integration", category: "backend" },
 
   // Machine Learning
-  { name: "Python", level: 80, category: "machine learning" },
-  { name: "Scikit-learn", level: 70, category: "machine learning" },
-  { name: "Pandas", level: 70, category: "machine learning" },
-  { name: "Matplotlib", level: 65, category: "machine learning" },
+  { name: "Python", category: "machine learning" },
+  { name: "Scikit-learn", category: "machine learning" },
+  { name: "Pandas", category: "machine learning" },
+  { name: "Matplotlib", category: "machine learning" },
 
   // Tools
-  { name: "Git/GitHub", level: 85, category: "tools" },
-  { name: "Visual Studio Code", level: 90, category: "tools" },
-  { name: "Android Studio", level: 65, category: "tools" },
-  { name: "Postman", level: 80, category: "tools" },
-  { name: "Agile/Scrum", level: 75, category: "tools" },
+  { name: "Git/GitHub", category: "tools" },
+  { name: "Visual Studio Code", category: "tools" },
+  { name: "Android Studio", category: "tools" },
+  { name: "Postman", category: "tools" },
+  { name: "Agile/Scrum", category: "tools" },
 ];
 
 const categories = ["all", "frontend", "backend", "machine learning", "tools"];
@@ -45,6 +45,7 @@ export const SkillsSection = () => {
   const filteredSkills = skills.filter(
     (skill) => activeCategory === "all" || skill.category === activeCategory
   );
+
   return (
     <section id="skills" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
@@ -52,16 +53,17 @@ export const SkillsSection = () => {
           My <span className="text-primary">Skills</span>
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        {/* Category Filter */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((category, key) => (
             <button
               key={key}
               onClick={() => setActiveCategory(category)}
               className={cn(
-                "px-5 py-2 rounded-full transition-colors duration-300 capitalize",
+                "px-5 py-2 rounded-full text-sm font-medium transition-colors duration-300 capitalize border",
                 activeCategory === category
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary/70 text-foreground hover:bg-secondary"
+                  ? "bg-primary text-white border-primary"
+                  : "bg-transparent text-foreground border-border hover:bg-muted"
               )}
             >
               {category}
@@ -69,27 +71,14 @@ export const SkillsSection = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Skill Tags */}
+        <div className="flex flex-wrap gap-4 justify-center">
           {filteredSkills.map((skill, key) => (
             <div
               key={key}
-              className="bg-card p-6 rounded-lg shadow-xs card-hover"
+              className="px-4 py-2 rounded-full bg-card shadow-sm text-sm font-medium text-foreground border border-border hover:bg-primary hover:text-white transition-colors duration-300 cursor-default"
             >
-              <div className="text-left mb-4">
-                <h3 className="font-semibold text-lg">{skill.name}</h3>
-              </div>
-              <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
-                <div
-                  className="bg-primary h-2 rounded-full origin-left animate-[grow_1.5s_ease-out]"
-                  style={{ width: skill.level + "%" }}
-                />
-              </div>
-
-              <div className="text-right mt-1">
-                <span className="text-sm text-muted-foreground">
-                  {skill.level}%
-                </span>
-              </div>
+              {skill.name}
             </div>
           ))}
         </div>

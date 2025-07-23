@@ -1,66 +1,9 @@
 "use client"; // Required for Next.js client-side component
 
-import React, { useState } from "react";
-import emailjs from "@emailjs/browser";
-import { useToast } from "@/hooks/use-toast"; // Assuming this hook is set up
-import { Mail, Phone, MapPin, Send, Linkedin, Instagram, Github } from "lucide-react";
-import { cn } from "@/lib/utils"; // Utility for className concatenation
-
-// Initialize EmailJS with your User ID (move to a config file in production)
-emailjs.init("IML0lerTNXcGRj7-_"); // Replace with your actual EmailJS User ID
+import React from "react";
+import { Mail, Phone, MapPin, Linkedin, Instagram, Github, Send } from "lucide-react";
 
 export const ContactSection = () => {
-  const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    const form = e.target;
-    const formData = {
-      user_name: form.user_name.value,
-      user_email: form.user_email.value,
-      message: form.message.value,
-    };
-
-    if (!formData.user_name || !formData.user_email || !formData.message) {
-      toast({
-        title: "Error",
-        description: "Please fill in all fields.",
-        variant: "destructive",
-      });
-      setIsSubmitting(false);
-      return;
-    }
-
-    emailjs
-      .sendForm(
-        "service_4slfm2f", // Replace with your actual Service ID
-        "template_l1rv17c", // Replace with your actual Template ID
-        form,
-        "L5osvut6V4nATOK8B" // Replace with your actual Public Key or Client ID
-      )
-      .then(
-        (response) => {
-          toast({
-            title: "Message Sent!",
-            description: "Thank you for your message. I'll get back to you soon.",
-          });
-          form.reset();
-          setIsSubmitting(false);
-        },
-        (error) => {
-          toast({
-            title: "Error",
-            description: `Failed to send message: ${error.text || "Unknown error"}`,
-            variant: "destructive",
-          });
-          setIsSubmitting(false);
-        }
-      );
-  };
-
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
@@ -125,7 +68,7 @@ export const ContactSection = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    linkedin.com/in/your-profile
+                    linkedin.com/in/dhanushika-madushani
                   </a>
                 </div>
               </div>
@@ -141,7 +84,7 @@ export const ContactSection = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    instagram.com/your-profile
+                    instagram.com/dhanu.madushani
                   </a>
                 </div>
               </div>
@@ -157,68 +100,22 @@ export const ContactSection = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    github.com/your-profile
+                    github.com/DhanushikaGit
                   </a>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="bg-card p-8 rounded-lg shadow-xs">
-            <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
-            <form className="space-y-6" onSubmit={sendEmail}>
-              <div>
-                <label htmlFor="user_name" className="block text-sm font-medium mb-2">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="user_name"
-                  name="user_name"
-                  required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary"
-                  placeholder="Your Name..."
-                />
-              </div>
-              <div>
-                <label htmlFor="user_email" className="block text-sm font-medium mb-2">
-                  Your Email
-                </label>
-                <input
-                  type="email"
-                  id="user_email"
-                  name="user_email"
-                  required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary"
-                  placeholder="your.email@example.com"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Your Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows="5"
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary resize-none"
-                  placeholder="Hello, I'd like to talk about..."
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={cn(
-                  "w-full flex items-center justify-center gap-2 py-3 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors",
-                  isSubmitting && "opacity-50 cursor-not-allowed"
-                )}
-              >
-                {isSubmitting ? "Sending..." : "Send Message"}
-                <Send size={16} />
-              </button>
-            </form>
+          {/* Single Mail Button */}
+          <div className="bg-card p-8 rounded-lg shadow-xs flex flex-col justify-center items-center">
+            <h3 className="text-2xl font-semibold mb-6 text-center">Send a Message</h3>
+            <a
+              href="mailto:danushikam804@gmail.com?subject=Hello&body=Hi%20there,%20I%20wanted%20to%20contact%20you%20about..."
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors text-lg font-medium"
+            >
+              Send Email <Send className="w-5 h-5" />
+            </a>
           </div>
         </div>
       </div>
