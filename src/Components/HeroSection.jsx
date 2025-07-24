@@ -41,12 +41,7 @@ export const HeroSection = () => {
 
       <div className="container max-w-4xl mx-auto text-center z-10 relative">
         {/* Welcome Badge */}
-        <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-sm mb-8">
-            <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-            <span className="text-sm text-muted-foreground">Available for projects</span>
-          </div>
-        </div>
+        
 
         <div className="space-y-6">
           {/* Title */}
@@ -76,14 +71,7 @@ export const HeroSection = () => {
           </h1>
 
           {/* Dynamic Skill Word */}
-          <div className={`transform transition-all duration-1000 delay-800 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <span className="text-sm text-muted-foreground">Specialized in</span>
-              <div className="px-3 py-1 bg-primary/10 rounded-full border border-primary/20">
-                <span className="text-primary font-medium text-sm">{skills[currentWord]}</span>
-              </div>
-            </div>
-          </div>
+         
 
           {/* Description */}
           <p className={`text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed transform transition-all duration-1000 delay-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>

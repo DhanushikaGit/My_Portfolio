@@ -1,4 +1,4 @@
-import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { ArrowRight, ExternalLink, Github, Calendar, Code2, Zap, Eye } from "lucide-react";
 
 const projects = [
   {
@@ -42,84 +42,170 @@ const projects = [
 
 export const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-24 px-4 relative">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          Featured <span className="text-primary">Projects</span>
-        </h2>
+    <section id="projects" className="py-24 px-4 relative bg-gradient-to-b from-transparent via-secondary/20 to-transparent">
+      <div className="container mx-auto max-w-6xl">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6 border border-primary/20">
+            <Code2 size={16} />
+            <span className="text-sm font-semibold">My Work</span>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+            Featured Projects
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            Here are some of my recent projects. Each project was carefully
+            crafted with attention to detail, performance, and user experience.
+          </p>
+        </div>
 
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Here are some of my recent projects. Each project was carefully
-          crafted with attention to detail, performance, and user experience.
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
+        {/* Projects Grid - All Same Size */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          {projects.map((project, index) => (
             <div
               key={project.id}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
+              className="group relative bg-card rounded-3xl overflow-hidden border border-border
+                         shadow-lg hover:shadow-2xl hover:shadow-primary/10 
+                         transition-all duration-500 hover:-translate-y-2"
+              style={{
+                animationDelay: `${index * 150}ms`
+              }}
             >
-              <div className="h-48 overflow-hidden">
+              {/* Project Number Badge */}
+              <div className="absolute top-4 left-4 z-20">
+                <div className="w-8 h-8 bg-primary/90 backdrop-blur-sm rounded-full flex items-center justify-center">
+                  <span className="text-white text-sm font-bold">0{project.id}</span>
+                </div>
+              </div>
+
+              {/* Action Buttons - Always Visible */}
+              <div className="absolute top-4 right-4 z-20 flex gap-2">
+                {project.demoUrl && (
+                  <button className="w-10 h-10 bg-card/80 backdrop-blur-sm border border-border rounded-full 
+                                   flex items-center justify-center hover:bg-primary hover:text-white 
+                                   hover:border-primary transition-all duration-300 group/btn">
+                    <ExternalLink size={16} />
+                  </button>
+                )}
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-card/80 backdrop-blur-sm border border-border rounded-full 
+                           flex items-center justify-center hover:bg-primary hover:text-white 
+                           hover:border-primary transition-all duration-300"
+                >
+                  <Github size={16} />
+                </a>
+              </div>
+
+              {/* Image Container - Fixed Height */}
+              <div className="relative h-64 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                 />
+                
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60"></div>
+                
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
 
-              <div className="p-6">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+              {/* Content Container - Fixed Height */}
+              <div className="p-6 h-64 flex flex-col">
+                {/* Title */}
+                <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300 line-clamp-2">
+                  {project.title}
+                </h3>
 
-                <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4">
+                {/* Description */}
+                <p className="text-muted-foreground text-sm mb-4 flex-1 leading-relaxed line-clamp-3">
                   {project.description}
                 </p>
-                <div className="flex justify-between items-center">
-                  <div className="flex space-x-3">
-                    {/* Only show demoUrl if it exists */}
-                    {project.demoUrl && (
-                      <a
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-foreground/80 hover:text-primary transition-colors duration-300"
+
+                {/* Tech Stack */}
+                <div className="space-y-4">
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.slice(0, 4).map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        className="px-3 py-1 bg-secondary text-secondary-foreground text-xs font-medium 
+                                 rounded-full border border-border hover:border-primary hover:bg-primary/10 
+                                 hover:text-primary transition-all duration-300 cursor-default"
                       >
-                        <ExternalLink size={20} />
-                      </a>
+                        {tag}
+                      </span>
+                    ))}
+                    {project.tags.length > 4 && (
+                      <span className="px-3 py-1 bg-muted text-muted-foreground text-xs font-medium rounded-full">
+                        +{project.tags.length - 4}
+                      </span>
                     )}
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <Github size={20} />
-                    </a>
+                  </div>
+
+                  {/* Bottom Actions */}
+                  <div className="flex items-center justify-between pt-2 border-t border-border/50">
+                    <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                      <div className="flex items-center gap-1">
+                        <Calendar size={12} />
+                        <span>2024</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Zap size={12} />
+                        <span>Active</span>
+                      </div>
+                    </div>
+                    
+                    <button className="flex items-center gap-1 text-xs text-primary hover:text-primary/80 
+                                     transition-colors duration-300 font-medium group/view">
+                      <Eye size={12} />
+                      <span>View Details</span>
+                      <ArrowRight size={10} className="group-hover/view:translate-x-0.5 transition-transform duration-300" />
+                    </button>
                   </div>
                 </div>
               </div>
+
+              {/* Card Border Animation */}
+              <div className="absolute inset-0 rounded-3xl border-2 border-primary/0 group-hover:border-primary/30 
+                            transition-all duration-500 pointer-events-none"></div>
+              
+              {/* Corner Accent */}
+              <div className="absolute bottom-0 left-0 w-0 h-0 border-l-[30px] border-b-[30px] 
+                            border-l-transparent border-b-primary/10 group-hover:border-b-primary/20 
+                            transition-colors duration-300 rounded-br-3xl"></div>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <a
-            className="cosmic-button w-fit flex items-center mx-auto gap-2"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/DhanushikaGit"
-          >
-            Check My Github <ArrowRight size={16} />
-          </a>
+        
+          
+         
+
+        {/* Call to Action */}
+        <div className="text-center">
+          <div className="inline-flex flex-col items-center gap-4 bg-card rounded-3xl p-8 border border-border shadow-lg max-w-md mx-auto">
+            <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-2">
+              <Github className="text-primary" size={24} />
+            </div>
+            <h3 className="text-xl font-bold">Explore My GitHub</h3>
+            <p className="text-muted-foreground text-sm text-center">
+              Discover more projects, code samples, and contributions on my GitHub profile
+            </p>
+            <a
+              className="cosmic-button flex items-center gap-2 group"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/DhanushikaGit"
+            >
+              Visit GitHub
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+            </a>
+          </div>
         </div>
       </div>
     </section>
