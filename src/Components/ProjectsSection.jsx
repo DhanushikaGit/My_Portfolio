@@ -8,7 +8,7 @@ const projects = [
       "A responsive restaurant website with menu display, online reservations, and user reviews, built with React and Laravel.",
     image: "/projects/restaurant-website.png",
     tags: ["Java", "JavaScript", "MySQL", "Tailwind CSS", "Bootstrap"],
-    githubUrl: "#",
+    githubUrl: "https://github.com/DhanushikaGit/ABC-restaurant.git",
   },
   {
     id: 2,
@@ -149,26 +149,8 @@ export const ProjectsSection = () => {
                     )}
                   </div>
 
-                  {/* Bottom Actions */}
-                  <div className="flex items-center justify-between pt-2 border-t border-border/50">
-                    <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <Calendar size={12} />
-                        <span>2024</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Zap size={12} />
-                        <span>Active</span>
-                      </div>
-                    </div>
-                    
-                    <button className="flex items-center gap-1 text-xs text-primary hover:text-primary/80 
-                                     transition-colors duration-300 font-medium group/view">
-                      <Eye size={12} />
-                      <span>View Details</span>
-                      <ArrowRight size={10} className="group-hover/view:translate-x-0.5 transition-transform duration-300" />
-                    </button>
-                  </div>
+                 
+                  
                 </div>
               </div>
 
