@@ -41,7 +41,7 @@ const skills = [
   
   // Backend
   { name: "Node.js", category: "backend", level: 85 },
-  { name: "Express.js", category: "backend", level: 82 },
+  { name: "Express.js", category: "backend", level: 62 },
   { name: "Laravel", category: "backend", level: 78 },
   { name: "PHP", category: "backend", level: 80 },
   { name: "Java", category: "backend", level: 75 },
@@ -49,7 +49,7 @@ const skills = [
   { name: "MongoDB", category: "backend", level: 85 },
   { name: "MySQL", category: "backend", level: 88 },
   { name: "Firebase", category: "backend", level: 80 },
-  { name: "RESTful APIs", category: "backend", level: 90 },
+  { name: "RESTful APIs", category: "backend", level: 80 },
   { name: "TMDB API Integration", category: "backend", level: 85 },
   
   // Machine Learning
@@ -62,12 +62,12 @@ const skills = [
   { name: "Git/GitHub", category: "tools", level: 90 },
   { name: "Visual Studio Code", category: "tools", level: 95 },
   { name: "Android Studio", category: "tools", level: 75 },
-  { name: "Postman", category: "tools", level: 85 },
-  { name: "Agile/Scrum", category: "tools", level: 80 },
+  { name: "Postman", category: "tools", level: 75 },
+  { name: "Agile/Scrum", category: "tools", level: 60 },
 ];
 
 const categories = [
-  { id: "all", name: "All Skills", icon: Code2 },
+
   { id: "frontend", name: "Frontend", icon: Globe },
   { id: "backend", name: "Backend", icon: Server },
   { id: "machine learning", name: "ML/AI", icon: Brain },
@@ -75,7 +75,8 @@ const categories = [
 ];
 
 export const SkillsSection = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
+const [activeCategory, setActiveCategory] = useState("frontend");
+
   
   const filteredSkills = skills.filter(
     (skill) => activeCategory === "all" || skill.category === activeCategory
@@ -202,30 +203,7 @@ export const SkillsSection = () => {
             </div>
             
             {/* Skills Summary */}
-            <div className="mt-12 bg-card rounded-2xl p-6 shadow-lg border border-border">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                <div className="space-y-2">
-                  <div className="text-2xl font-bold text-primary">{filteredSkills.length}</div>
-                  <div className="text-sm text-foreground/70 font-medium">Skills Shown</div>
-                </div>
-                <div className="space-y-2">
-                  <div className="text-2xl font-bold text-primary">
-                    {Math.round(filteredSkills.reduce((acc, skill) => acc + skill.level, 0) / filteredSkills.length)}%
-                  </div>
-                  <div className="text-sm text-foreground/70 font-medium">Avg Proficiency</div>
-                </div>
-                <div className="space-y-2">
-                  <div className="text-2xl font-bold text-primary">
-                    {filteredSkills.filter(skill => skill.level >= 85).length}
-                  </div>
-                  <div className="text-sm text-foreground/70 font-medium">Expert Level</div>
-                </div>
-                <div className="space-y-2">
-                  <div className="text-2xl font-bold text-primary">{categories.length - 1}</div>
-                  <div className="text-sm text-foreground/70 font-medium">Categories</div>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>

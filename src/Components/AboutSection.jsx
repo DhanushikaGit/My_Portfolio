@@ -11,12 +11,12 @@ export const AboutSection = () => {
       <div className="container mx-auto max-w-6xl relative z-10">
         {/* Title */}
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-            About{" "}
-            <span className="text-primary relative">
+           <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tight">
+            About <span className="text-primary relative">
               Me
-              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary/60 via-primary to-primary/60 rounded-full transform scale-x-0 animate-pulse" style={{ animation: 'scaleX 2s ease-in-out infinite' }} />
+              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 rounded-full"></div>
             </span>
+          
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto rounded-full" />
         </div>
@@ -26,23 +26,16 @@ export const AboutSection = () => {
           <div className="space-y-8 group">
             <div className="space-y-6">
               <h3 className="text-3xl md:text-4xl font-bold leading-tight bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-                Full-Stack Developer & Problem Solver
+                Full-Stack Developer
               </h3>
 
-              <div className="space-y-6 text-lg leading-relaxed">
-                <p className="text-muted-foreground transform hover:scale-[1.02] transition-all duration-300 p-4 rounded-xl hover:bg-background/50 backdrop-blur-sm">
-                  I'm a dedicated Full-Stack Developer with a{" "}
-                  <span className="text-primary font-semibold">BSc (Hons) in Computing and Software Engineering</span>{" "}
-                  from Cardiff Metropolitan University. My expertise lies in crafting scalable, user-friendly web
-                  applications using technologies like{" "}
-                  <span className="text-primary font-semibold">React, Laravel, Node.js, and MongoDB</span>.
+                 <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
+                <p className="text-foreground/90">
+                  I recently completed my <span className="text-primary font-semibold">BSc (Hons) in Computing and Software Engineering</span> from Cardiff Metropolitan University, where I developed a deep passion for creating digital solutions that matter.
                 </p>
-
-                <p className="text-muted-foreground transform hover:scale-[1.02] transition-all duration-300 p-4 rounded-xl hover:bg-background/50 backdrop-blur-sm">
-                  I have experience building platforms from doctor appointment systems to e-commerce apps. I love
-                  working on innovative solutions, continuously learning new tech, and applying{" "}
-                  <span className="text-primary font-semibold">UI/UX best practices</span>{" "}
-                  to create seamless digital experiences.
+              
+                <p>
+                  I enjoy exploring new technologies, contributing to open-source, and mentoring others. My goal is to create software that blends innovation with purpose.
                 </p>
               </div>
             </div>

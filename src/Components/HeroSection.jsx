@@ -95,20 +95,7 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          {/* Tech Stack Pills */}
-          <div className={`pt-8 transform transition-all duration-1000 delay-1400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div className="flex flex-wrap justify-center gap-2 max-w-md mx-auto">
-              {["React", "Node.js", "TypeScript", "MongoDB"].map((tech, index) => (
-                <div
-                  key={tech}
-                  className="px-3 py-1 text-xs bg-primary/5 border border-primary/10 rounded-full text-muted-foreground hover:bg-primary/10 hover:border-primary/20 transition-all duration-300 cursor-default"
-                  style={{ animationDelay: `${1600 + index * 100}ms` }}
-                >
-                  {tech}
-                </div>
-              ))}
-            </div>
-          </div>
+          
         </div>
       </div>
 

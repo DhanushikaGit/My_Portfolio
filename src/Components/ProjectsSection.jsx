@@ -50,9 +50,11 @@ export const ProjectsSection = () => {
             <Code2 size={16} />
             <span className="text-sm font-semibold">My Work</span>
           </div>
-          
-          <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
-            Featured Projects
+           <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tight">
+            Featured <span className="text-primary relative">
+              Project
+              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 rounded-full"></div>
+            </span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
             Here are some of my recent projects. Each project was carefully
