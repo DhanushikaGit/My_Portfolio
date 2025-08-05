@@ -132,9 +132,22 @@ export const ContactSection = () => {
                         <p className="text-sm text-muted-foreground mb-2">
                           {method.description}
                         </p>
-                        <p className="text-sm font-medium text-foreground break-all">
-                          {method.value}
-                        </p>
+                        <div className="flex items-center justify-center gap-2 text-sm font-medium text-foreground break-all">
+                          <span>{method.value}</span>
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handleCopy(method.value);
+                            }}
+                            className="hover:text-primary transition"
+                          >
+                            {copied === method.value ? (
+                              <Check size={14} className="text-green-500" />
+                            ) : (
+                              <Copy size={14} />
+                            )}
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </a>
