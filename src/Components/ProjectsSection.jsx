@@ -42,7 +42,10 @@ const projects = [
 
 export const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-24 px-4 relative bg-gradient-to-b from-transparent via-secondary/20 to-transparent">
+    <section
+      id="projects"
+      className="py-24 px-4 relative bg-gradient-to-b from-transparent via-secondary/20 to-transparent"
+    >
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
         <div className="text-center mb-16">
@@ -50,8 +53,9 @@ export const ProjectsSection = () => {
             <Code2 size={16} />
             <span className="text-sm font-semibold">My Work</span>
           </div>
-           <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tight">
-            Featured <span className="text-primary relative">
+          <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tight">
+            Featured{" "}
+            <span className="text-primary relative">
               Project
               <div className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 rounded-full"></div>
             </span>
@@ -71,7 +75,7 @@ export const ProjectsSection = () => {
                          shadow-lg hover:shadow-2xl hover:shadow-primary/10 
                          transition-all duration-500 hover:-translate-y-2"
               style={{
-                animationDelay: `${index * 150}ms`
+                animationDelay: `${index * 150}ms`,
               }}
             >
               {/* Project Number Badge */}
@@ -81,25 +85,18 @@ export const ProjectsSection = () => {
                 </div>
               </div>
 
-              {/* Action Buttons - Always Visible */}
+              {/* Action Buttons - Only Demo URL if any */}
               <div className="absolute top-4 right-4 z-20 flex gap-2">
                 {project.demoUrl && (
-                  <button className="w-10 h-10 bg-card/80 backdrop-blur-sm border border-border rounded-full 
+                  <button
+                    className="w-10 h-10 bg-card/80 backdrop-blur-sm border border-border rounded-full 
                                    flex items-center justify-center hover:bg-primary hover:text-white 
-                                   hover:border-primary transition-all duration-300 group/btn">
+                                   hover:border-primary transition-all duration-300 group/btn"
+                  >
                     <ExternalLink size={16} />
                   </button>
                 )}
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-card/80 backdrop-blur-sm border border-border rounded-full 
-                           flex items-center justify-center hover:bg-primary hover:text-white 
-                           hover:border-primary transition-all duration-300"
-                >
-                  <Github size={16} />
-                </a>
+                {/* Removed GitHub button from here */}
               </div>
 
               {/* Image Container - Fixed Height */}
@@ -109,10 +106,10 @@ export const ProjectsSection = () => {
                   alt={project.title}
                   className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                 />
-                
+
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60"></div>
-                
+
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
@@ -132,7 +129,7 @@ export const ProjectsSection = () => {
                 {/* Tech Stack */}
                 <div className="space-y-4">
                   <div className="flex flex-wrap gap-2">
-                    {project.tags.slice(0, 4).map((tag, tagIndex) => (
+                    {project.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
                         className="px-3 py-1 bg-secondary text-secondary-foreground text-xs font-medium 
@@ -142,33 +139,36 @@ export const ProjectsSection = () => {
                         {tag}
                       </span>
                     ))}
-                    {project.tags.length > 4 && (
-                      <span className="px-3 py-1 bg-muted text-muted-foreground text-xs font-medium rounded-full">
-                        +{project.tags.length - 4}
-                      </span>
-                    )}
                   </div>
-
-                 
-                  
                 </div>
+
+                {/* GitHub Link below tags */}
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mt-4 text-primary font-semibold hover:underline"
+                >
+                  <Github size={16} />
+                  View on GitHub
+                </a>
               </div>
 
               {/* Card Border Animation */}
-              <div className="absolute inset-0 rounded-3xl border-2 border-primary/0 group-hover:border-primary/30 
-                            transition-all duration-500 pointer-events-none"></div>
-              
+              <div
+                className="absolute inset-0 rounded-3xl border-2 border-primary/0 group-hover:border-primary/30 
+                            transition-all duration-500 pointer-events-none"
+              ></div>
+
               {/* Corner Accent */}
-              <div className="absolute bottom-0 left-0 w-0 h-0 border-l-[30px] border-b-[30px] 
+              <div
+                className="absolute bottom-0 left-0 w-0 h-0 border-l-[30px] border-b-[30px] 
                             border-l-transparent border-b-primary/10 group-hover:border-b-primary/20 
-                            transition-colors duration-300 rounded-br-3xl"></div>
+                            transition-colors duration-300 rounded-br-3xl"
+              ></div>
             </div>
           ))}
         </div>
-
-        
-          
-         
 
         {/* Call to Action */}
         <div className="text-center">
