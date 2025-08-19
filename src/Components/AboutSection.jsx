@@ -54,7 +54,7 @@ export const AboutSection = () => {
               </a>
 
               <a
-                href="/Dhanushika_CV.zip"
+                href="/Dhanushika_CV.pdf"
                 download
                 className="group relative px-8 py-4 rounded-2xl border-2 border-primary text-primary font-semibold text-lg overflow-hidden transition-all duration-500 hover:scale-105 bg-background/50 backdrop-blur-sm hover:bg-primary/5"
               >
