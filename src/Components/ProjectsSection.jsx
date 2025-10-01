@@ -1,8 +1,17 @@
 import { ArrowRight, ExternalLink, Github, Calendar, Code2, Zap, Eye } from "lucide-react";
 
 const projects = [
-  {
+   {
     id: 1,
+    title: "My Portfolio Website",
+    description:
+      "A personal portfolio website built with React and TailwindCSS, showcasing my projects, skills, and experience in web development, deployed on Vercel.",
+    image: "/projects/portfolio-website.png",
+    tags: ["React", "Tailwind CSS", "Next.js", "Vercel", "Responsive Design"],
+    githubUrl: "https://github.com/DhanushikaGit/My_Portfolio.git",
+  },
+  {
+    id: 2,
     title: "Restaurant Website",
     description:
       "A responsive restaurant website with menu display, online reservations, and user reviews, built with React and Laravel.",
@@ -11,7 +20,7 @@ const projects = [
     githubUrl: "https://github.com/DhanushikaGit/ABC-restaurant.git",
   },
   {
-    id: 2,
+    id: 3,
     title: "Movie Exploration App",
     description:
       "A web app that suggests movies using TMDB API integration and user preferences, built with React and Node.js.",
@@ -20,7 +29,7 @@ const projects = [
     githubUrl: "https://github.com/DhanushikaGit/movie_explore_app",
   },
   {
-    id: 3,
+    id: 4,
     title: "Agriculture Platform",
     description:
       "A platform connecting farmers to agricultural services with information portals and service request forms, using PHP and Bootstrap.",
@@ -30,7 +39,7 @@ const projects = [
       "https://github.com/DhanushikaGit/Agriculture_Services_and_Fertilizer_Distribution_Platform",
   },
   {
-    id: 4,
+    id: 5,
     title: "Doctor Appointment Booking System",
     description:
       "Designed and developed a secure web app with role-based authentication, enabling appointment scheduling and payment integration for 100+ users.",
@@ -38,6 +47,25 @@ const projects = [
     tags: ["React", "MongoDB", "Express.js", "Node.js", "Tailwind CSS"],
     githubUrl: "https://github.com/DhanushikaGit/Appoinment_Booking_System",
   },
+    {
+    id:6,
+    title: "Startup Website",
+    description:
+      "A modern single-page startup website built with React and TailwindCSS, showcasing services, portfolio, and a contact form with JSON-based content and minimal React state.",
+    image: "/projects/startup web site.png",
+    tags: ["React", "Tailwind CSS", "Vite", "ESLint", "Prettier"],
+    githubUrl: "https://github.com/DhanushikaGit/Startup-Website.git",
+  },
+  {
+    id: 7,
+    title: "Web Solutions Company Profile",
+    description:
+      "A creative one-page company profile website for Web Solutions Pvt. Ltd., built with HTML, CSS, JavaScript, and PHP backend handling contact form submissions meaningfully.",
+    image: "/projects/web solution.png",
+    tags: ["HTML", "CSS", "JavaScript", "PHP", "Responsive Design"],
+    githubUrl: "https://github.com/DhanushikaGit/Web_Solution-Web-Site.git",
+  },
+
 ];
 
 export const ProjectsSection = () => {
