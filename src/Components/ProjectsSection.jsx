@@ -65,6 +65,16 @@ const projects = [
     tags: ["HTML", "CSS", "JavaScript", "PHP", "Responsive Design"],
     githubUrl: "https://github.com/DhanushikaGit/Web_Solution-Web-Site.git",
   },
+  {
+  id: 8,
+  title: "MERN Product Management Web App",
+  description:
+    "A responsive full-stack product management application built with the MERN stack. Features include adding, editing, deleting, and searching products with a clean UI and RESTful API integration.",
+  image: "/projects/mern-product-app.png",
+  tags: ["MongoDB", "Express.js", "React", "Node.js", "Responsive Design"],
+  githubUrl: "https://github.com/DhanushikaGit/Product-Web-App.git",
+},
+
 
 ];
 
